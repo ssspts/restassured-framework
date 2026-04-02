@@ -3,52 +3,7 @@
 A production-ready Java API test framework built on **RestAssured 5**, **TestNG**, **Allure**, and **Jackson**.  
 Targets the public [JSONPlaceholder](https://jsonplaceholder.typicode.com) API for demonstration.
 
----
 
-## 📁 Project Structure
-
-```
-restassured-framework/
-├── pom.xml
-└── src/test/
-    ├── java/com/api/framework/
-    │   ├── config/
-    │   │   ├── ConfigManager.java          # Singleton env-aware property loader
-    │   │   └── RestAssuredConfig.java      # Reusable RequestSpecification factory
-    │   ├── constants/
-    │   │   └── ApiConstants.java           # Endpoints, HTTP status codes, header names
-    │   ├── models/
-    │   │   ├── Post.java                   # Lombok + Jackson POJOs
-    │   │   ├── User.java
-    │   │   └── Todo.java
-    │   ├── utils/
-    │   │   ├── ApiClient.java              # Thin HTTP verb wrapper
-    │   │   ├── JsonUtils.java              # Jackson serialize/deserialize helpers
-    │   │   ├── ResponseValidator.java      # Reusable assertion helpers
-    │   │   ├── SchemaValidator.java        # JSON Schema validation via classpath
-    │   │   └── TestDataBuilder.java        # JavaFaker-powered test data factory
-    │   ├── listeners/
-    │   │   ├── AllureTestListener.java     # Lifecycle hooks + Allure attachments
-    │   │   ├── ExtentReportManager.java    # Suite summary reporter
-    │   │   ├── RetryAnalyzer.java          # Retries failing tests up to N times
-    │   │   └── RetryListener.java          # Auto-applies RetryAnalyzer to all tests
-    │   └── tests/
-    │       ├── BaseTest.java               # @BeforeClass spec setup
-    │       ├── PostsApiTest.java           # CRUD on /posts (4 tests)
-    │       ├── UsersApiTest.java           # /users + /users/{id}/posts (3 tests)
-    │       ├── NegativeApiTest.java        # 404s, DELETE, empty filter (4 tests)
-    │       ├── TodosApiTest.java           # /todos CRUD + filter + DataProvider (5 tests)
-    │       ├── CommentsApiTest.java        # /comments path vs query param (3 tests)
-    │       └── SchemaValidationTest.java   # JSON Schema contract tests (2 tests)
-    └── resources/
-        ├── config.properties              # Default config
-        ├── config-qa.properties           # QA environment config
-        ├── logback-test.xml               # Console + rolling file logging
-        ├── testng.xml                     # Suite definition (Smoke / Contract / Regression)
-        └── schemas/
-            ├── post-schema.json           # JSON Schema for Post resource
-            └── user-schema.json           # JSON Schema for User resource
-```
 
 ---
 
