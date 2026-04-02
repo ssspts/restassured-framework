@@ -46,6 +46,8 @@ mvn clean test -Dtest=PostsApiTest
 ### Allure (recommended)
 ```bash
 # Generate report after test run
+# Reports files are generated automatically after test run,
+# if they are not generate then use this command
 mvn allure:report
 
 # Serve report on localhost
